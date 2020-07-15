@@ -1,0 +1,11 @@
+.Header {
+    height: 7.5vh;
+    width: 100vw;
+    background-color: blue;
+    font-family: 'Dancing Script', cursive;
+    color: cornsilk;
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
