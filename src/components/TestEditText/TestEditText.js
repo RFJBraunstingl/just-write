@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { text2md } from './Text2MarkdownConverter'
+import {LOCAL_STORAGE_KEY_TEXT} from '../../Constants'
 
 import classes from "./TestEditText.module.css";
 
@@ -9,14 +10,15 @@ export default class TextEditArea extends Component {
   };
 
   changeHandler = (event, change) => {
+    const newText = event.target.value
     this.setState({
-      text: event.target.value,
+      text: newText,
     });
+    localStorage.setItem(LOCAL_STORAGE_KEY_TEXT, event.target.value)
   };
 
   render() {
     const { text } = this.state
-    console.log(text)
 
     return (
       <div className={classes.Wrapper}>
