@@ -14,44 +14,48 @@ describe('text2md()', () => {
 /* TODO: examine what accounts as text - this does not work with dots */
 describe('emphasis parsing', () => {
 
+    it('wraps text lines in a paragraph', () => {
+        expect(text2md('test')).toBe('<p>test</p>')
+    })
+
     it('returns em for underscors', () => {
         expect(text2md('_test_'))
-            .toBe('<em>test</em>')
+            .toBe('<p><em>test</em></p>')
     })
 
     it('returns em for asterisks', () => {
         expect(text2md('*test*'))
-            .toBe('<em>test</em>')
+            .toBe('<p><em>test</em></p>')
     })
 
     it('parses emphasis in text', () => {
         expect(text2md('Emphasis, aka italics, with *asterisks* or _underscores_.'))
-            .toBe('Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.')
+            .toBe('<p>Emphasis, aka italics, with <em>asterisks</em> or <em>underscores</em>.</p>')
     })
 
     it('handles double underscores as <strong>', () => {
         expect(text2md('__underscores__'))
-            .toBe('<strong>underscores</strong>')
+            .toBe('<p><strong>underscores</strong></p>')
     })
 
     it('handles double asterisks as <strong>', () => {
         expect(text2md('**asterisks**'))
-            .toBe('<strong>asterisks</strong>')
+            .toBe('<p><strong>asterisks</strong></p>')
     })
 
     it('handles strong emphasis in text', () => {
         expect(text2md('Strong emphasis, aka bold, with **asterisks** or __underscores__.'))
-            .toBe('Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.')
+            .toBe('<p>Strong emphasis, aka bold, with <strong>asterisks</strong> or <strong>underscores</strong>.</p>')
     })
 
     it('handles combined text', () => {
         expect(text2md('Combined emphasis with **asterisks and _underscores_**.'))
-            .toBe('Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.')
+            .toBe('<p>Combined emphasis with <strong>asterisks and <em>underscores</em></strong>.</p>')
     })
 
     it('handles strikethrough with tildes ~', () => {
         expect(text2md('Strikethrough uses two tildes. ~~Scratch this~~'))
-        .toBe('Strikethrough uses two tildes. <del>Scratch this</del>')
+        .toBe('<p>Strikethrough uses two tildes. <del>Scratch this</del></p>')
     })
 })
 

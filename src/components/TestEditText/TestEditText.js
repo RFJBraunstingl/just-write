@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import { text2md } from './Text2MarkdownConvertert'
 
 import classes from "./TestEditText.module.css";
 
 export default class TestEditText extends Component {
   state = {
-    text: "",
+    text: '# this is a title\n\n- bullet 1\n- bullet 2\n- bullet 3',
   };
 
   changeHandler = (event, change) => {
@@ -14,20 +15,18 @@ export default class TestEditText extends Component {
   };
 
   render() {
+    const { text } = this.state
+
     return (
       <div className={classes.Wrapper}>
-        <textarea 
-          className={classes.Input} 
-          onChange={this.changeHandler} 
-          value={'# this is a title\n\n- bullet 1\n- bullet 2\n- bullet 3'}/>
+        <textarea
+          className={classes.Input}
+          onChange={this.changeHandler}
+          value={text} />
         <div className={classes.Divider} />
-        <div className={classes.Output}>
-          <h1>This is a title</h1>
-          <ul>
-            <li>bullet 1</li>
-            <li>bullet 2</li>
-            <li>bullet 3</li>
-          </ul>
+        <div
+          className={classes.Output}
+          dangerouslySetInnerHTML={{__html: text2md(text)}}>
         </div>
       </div>
     );

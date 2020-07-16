@@ -38,7 +38,7 @@ export const stripPoundsAtBeginning =
     (input) => input.substring(countPoundsAtBeginning(input) + 1)
 
 const parseTextLine = (line) => {
-    return line
+    line = line
         /* replace double underscors as strong */
         .replace(/^__(?=(\w))/, '<strong>')
         .replace(/(?<=(\W))__(?=(\w))/, '<strong>')
@@ -64,4 +64,6 @@ const parseTextLine = (line) => {
         .replace(/(?<=(\W))~~(?=(\w))/, '<del>')
         .replace(/(?<=(\w))~~(?=(\W))/, '</del>')
         .replace(/(?<=(\w))~~$/, '</del>')
+    
+    return `<p>${line}</p>`
 }
