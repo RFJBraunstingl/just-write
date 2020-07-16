@@ -18,3 +18,11 @@ steps:
       from_secret: docker_password
     repo: rfjbraunstingl/just-write
     tags: latest
+- name: deploy
+  image: appleboy/drone-jenkins
+  settings:
+    url: https://jenkins.mangi.app
+    user: jenkins
+    token:
+      from_secret: jenkins_token
+    job: Deployment/just-write.rfj.dev
