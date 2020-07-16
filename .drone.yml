@@ -26,4 +26,4 @@ steps:
       from_secret: jenkins_username
     password:
       from_secret: jenkins_password
-    urls: https://jenkins.mangi.app/job/Deployment/job/just-write.rfj.dev/build?token=3b2a782a2043ccee2128dd89ea713739
+    urls: https://jenkins.rfj.dev/job/Deployment/job/just-write.rfj.dev/build?token=3b2a782a2043ccee2128dd89ea713739
