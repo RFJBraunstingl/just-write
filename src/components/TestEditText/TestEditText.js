@@ -3,9 +3,9 @@ import { text2md } from './Text2MarkdownConverter'
 
 import classes from "./TestEditText.module.css";
 
-export default class TestEditText extends Component {
+export default class TextEditArea extends Component {
   state = {
-    text: '# this is a title\n\n- bullet 1\n- bullet 2\n- bullet 3',
+    text: this.props.initialText || '',
   };
 
   changeHandler = (event, change) => {
@@ -16,6 +16,7 @@ export default class TestEditText extends Component {
 
   render() {
     const { text } = this.state
+    console.log(text)
 
     return (
       <div className={classes.Wrapper}>
