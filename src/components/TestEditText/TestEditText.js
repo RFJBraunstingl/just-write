@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { text2md } from './Text2MarkdownConvertert'
+import { text2md } from './Text2MarkdownConverter'
 
 import classes from "./TestEditText.module.css";
 

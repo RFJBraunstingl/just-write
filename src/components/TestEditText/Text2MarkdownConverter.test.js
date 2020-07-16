@@ -1,5 +1,4 @@
-import { text2md, isHeaderLine, countPoundsAtBeginning } from './Text2MarkdownConvertert'
-import { isTaggedTemplateExpression, exportAllDeclaration } from '@babel/types';
+import { text2md, isHeaderLine, countPoundsAtBeginning } from './Text2MarkdownConverter'
 
 describe('text2md()', () => {
 
