@@ -3,27 +3,29 @@ type: docker
 name: default
 
 steps:
-- name: build
-  image: node
-  commands:
-  - npm install
-  - npm run test
-  - npm run build
-- name: docker  
-  image: plugins/docker
-  settings:
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
-    repo: rfjbraunstingl/just-write
-    tags: latest
-    steps:
-- name: deploy
-  image: plugins/webhook
-  settings:
-    username:
-      from_secret: jenkins_username
-    password:
-      from_secret: jenkins_password
-    urls: https://jenkins.rfj.dev/job/Deployment/job/just-write.rfj.dev/build?token=3b2a782a2043ccee2128dd89ea713739
+  - name: build
+    image: node
+    commands:
+      - npm install
+      - npm test -- --watchAll=false
+      - npm run build
+  - name: docker
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: rfjbraunstingl/just-write
+      tags:
+        - latest
+        - ${DRONE_COMMIT}
+      steps:
+  - name: deploy
+    image: plugins/webhook
+    settings:
+      username:
+        from_secret: jenkins_username
+      password:
+        from_secret: jenkins_password
+      urls: https://jenkins.rfj.dev/job/Deployment/job/just-write.rfj.dev/build?token=3b2a782a2043ccee2128dd89ea713739

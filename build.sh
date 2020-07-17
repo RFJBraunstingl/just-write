@@ -1,0 +1,1 @@
+drone exec --include=build
