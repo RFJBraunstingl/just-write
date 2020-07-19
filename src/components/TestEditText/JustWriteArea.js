@@ -3,7 +3,6 @@ import { LOCAL_STORAGE_KEY_TEXT } from "../../Constants";
 import marked from "marked";
 
 import classes from "./JustWriteArea.module.css";
-import ViewModeToggleButton from "../ViewModeToggleButton/ViewModeToggleButton";
 
 export default class JustWriteArea extends Component {
   state = {

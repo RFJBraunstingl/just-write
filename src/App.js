@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import JustWriteArea from "./components/TestEditText/JustWriteArea";
-import { LOCAL_STORAGE_KEY_TEXT, LOCAL_STORAGE_KEY_MODE } from "./Constants";
+import { LOCAL_STORAGE_KEY_TEXT } from "./Constants";
 import Footer from "./components/Footer/Footer";
 
 function App() {
