@@ -1,6 +1,6 @@
 .Wrapper {
   display: flex;
-  height: 90vh;
+  max-height: 85vh;
   flex-direction: column-reverse;
   justify-content: space-around;
   align-items: center;
@@ -9,12 +9,13 @@
 .Input {
   width: 80vw;
   height: 40vh;
+  margin: 12px;
   resize: none;
   font-family: "Source Code Pro", monospace;
 }
 
 .Divider {
-  width: 90vw;
+  width: 100vw;
   height: 0;
   border-bottom: 1px solid gray;
 }
@@ -23,6 +24,7 @@
   border: 1px solid blue;
   height: 40vh;
   width: 80vw;
+  margin: 12px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -37,7 +39,6 @@
 /* for bigger devices display side by side */
 @media (min-width: 576px) {
   .Wrapper {
-    height: auto;
     flex-direction: row;
   }
 
@@ -49,7 +50,7 @@
   }
 
   .Divider {
-    height: 90vh;
+    height: 85vh;
     width: 0;
     border-left: 1px solid gray;
   }
