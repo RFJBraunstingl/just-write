@@ -6,21 +6,13 @@
   align-items: center;
 }
 
-.Input {
-  width: 80vw;
-  height: 40vh;
-  margin: 12px;
-  resize: none;
-  font-family: "Source Code Pro", monospace;
-}
-
 .Divider {
   width: 100vw;
   height: 0;
   border-bottom: 1px solid gray;
 }
 
-.Output {
+.TextField_SideBySide {
   border: 1px solid blue;
   height: 40vh;
   width: 80vw;
@@ -32,7 +24,7 @@
   overflow-y: auto;
 }
 
-.Output > * {
+.TextField_SideBySide > * {
   margin: 5px;
 }
 
@@ -42,20 +34,13 @@
     flex-direction: row;
   }
 
-  .Input {
-    width: 40vw;
-    height: 80vh;
-    resize: none;
-    font-family: "Source Code Pro", monospace;
-  }
-
   .Divider {
     height: 85vh;
     width: 0;
     border-left: 1px solid gray;
   }
 
-  .Output {
+  .TextField_SideBySide {
     border: 1px solid blue;
     height: 80vh;
     width: 40vw;
