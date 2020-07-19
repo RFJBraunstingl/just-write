@@ -20,6 +20,8 @@ export default class JustWriteArea extends Component {
 
   getCssClassForViewMode = (viewMode) => {
     if (viewMode === "SIDE_BY_SIDE") return classes.TextField_SideBySide;
+
+    return classes.TextField_Single;
   };
 
   render() {
@@ -31,20 +33,22 @@ export default class JustWriteArea extends Component {
       viewMode === "TEXT" || viewMode === "SIDE_BY_SIDE";
     const displayMarkdownPreview =
       viewMode === "MARKDOWN" || viewMode === "SIDE_BY_SIDE";
+    const displayDivider = viewMode === "SIDE_BY_SIDE";
 
     return (
       <div className={classes.Wrapper}>
         {displayTextInputField ? (
           <textarea
-            className={cssClassName}
+            className={[cssClassName, classes.TextField].join(" ")}
             onChange={this.changeHandler}
             value={text}
           />
         ) : null}
-        <div className={classes.Divider} />
+        {displayDivider ? <div className={classes.Divider} /> : null}
         {displayMarkdownPreview ? (
           <div
-            className={cssClassName}
+            className={[cssClassName, classes.TextField].join(" ")}
+            style={{ "text-align": "left" }}
             dangerouslySetInnerHTML={{ __html: marked(text) }}
           />
         ) : null}
