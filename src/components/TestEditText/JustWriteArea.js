@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { LOCAL_STORAGE_KEY_TEXT } from "../../Constants";
 import marked from "marked";
 
-import classes from "./JustWriteArea.module.css";
+import styles from "./JustWriteArea.module.css";
 
 export default class JustWriteArea extends Component {
   state = {
@@ -18,9 +18,9 @@ export default class JustWriteArea extends Component {
   };
 
   getCssClassForViewMode = (viewMode) => {
-    if (viewMode === "SIDE_BY_SIDE") return classes.TextField_SideBySide;
+    if (viewMode === "SIDE_BY_SIDE") return styles.TextField_SideBySide;
 
-    return classes.TextField_Single;
+    return styles.TextField_Single;
   };
 
   render() {
