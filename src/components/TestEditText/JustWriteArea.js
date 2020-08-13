@@ -35,18 +35,18 @@ export default class JustWriteArea extends Component {
     const displayDivider = viewMode === "SIDE_BY_SIDE";
 
     return (
-      <div className={classes.Wrapper}>
+      <div className={styles.Wrapper}>
         {displayTextInputField ? (
           <textarea
-            className={[cssClassName, classes.TextField].join(" ")}
+            className={[cssClassName, styles.TextField].join(" ")}
             onChange={this.changeHandler}
             value={text}
           />
         ) : null}
-        {displayDivider ? <div className={classes.Divider} /> : null}
+        {displayDivider ? <div className={styles.Divider} /> : null}
         {displayMarkdownPreview ? (
           <div
-            className={[cssClassName, classes.TextField].join(" ")}
+            className={[cssClassName, styles.TextField].join(" ")}
             style={{ "text-align": "left" }}
             dangerouslySetInnerHTML={{ __html: marked(text) }}
           />

@@ -1,21 +1,21 @@
 import React from 'react'
 import marked from 'marked'
-import styles from 'Previewer.module.css'
+import styles from 'MarkdownPreview.module.css'
 import PropTypes from 'prop-types'
 
 interface Props {
     markdownText: string
 }
 
-const Previewer: React.FC<Props> = ({ markdownText }) => (
+const MarkdownPreview: React.FC<Props> = ({ markdownText }: Props) => (
     <div
         className={styles.Previewer}
         dangerouslySetInnerHTML={{ __html: marked(markdownText) }}
     />
 )
 
-Previewer.propTypes = {
+MarkdownPreview.propTypes = {
     markdownText: PropTypes.string.isRequired
 }
 
-export default Previewer
+export default MarkdownPreview

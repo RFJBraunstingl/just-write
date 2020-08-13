@@ -1,0 +1,21 @@
+.Wrapper {
+
+}
+
+.TextInputWrapper {
+    display: none;
+}
+
+.Divider {
+    display: none;
+}
+
+.MarkdownPreviewWrapper {
+
+}
+
+@media (max-width: 768px) {
+    .Divider {
+        display: none;
+    }
+}
