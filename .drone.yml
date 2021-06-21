@@ -9,6 +9,7 @@ steps:
       - npm install
       - npm test -- --watchAll=false
       - npm run build
+
   - name: docker
     image: plugins/docker
     settings:
@@ -21,11 +22,13 @@ steps:
         - latest
         - ${DRONE_COMMIT}
       steps:
+
   - name: deploy
-    image: plugins/webhook
-    settings:
-      username:
-        from_secret: jenkins_username
-      password:
-        from_secret: jenkins_password
-      urls: https://jenkins.rfj.dev/job/Deployment/job/just-write.rfj.dev/build?token=3b2a782a2043ccee2128dd89ea713739
+    image: bitnami/kubectl:latest
+    environment:
+      RFJ_K8S_SERVER:
+        from_secret: k8s_server_prod
+      RFJ_K8S_TOKEN:
+        from_secret: k8s_token_prod
+    commands:
+      - kubectl apply -f kubernetes.yml --namespace $DRONE_DEPLOY_TO --server $RFJ_K8S_SERVER --insecure-skip-tls-verify --token $RFJ_K8S_TOKEN
