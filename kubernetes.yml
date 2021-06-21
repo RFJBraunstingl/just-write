@@ -31,10 +31,10 @@ spec:
         app.kubernetes.io/name: just-write
     spec:
       containers:
-          image: rfjbraunstingl/just-write:latest
-          imagePullPolicy: Always
-          name: just-write
-          ports:
-            - containerPort: 80
-              name: http
-              protocol: TCP
+      - image: rfjbraunstingl/just-write:latest
+        imagePullPolicy: Always
+        name: just-write
+        ports:
+          - containerPort: 80
+            name: http
+            protocol: TCP
