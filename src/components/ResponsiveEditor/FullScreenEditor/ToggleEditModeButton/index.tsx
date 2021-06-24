@@ -16,14 +16,12 @@ const ToggleEditModeButton = ({onModeChange = () => {}}: Props) => {
 
     const [isEditModeActive, setEditModeActive] = useState<boolean>(true)
 
-    const handleClick = () => {
-        setEditModeActive(!isEditModeActive)
-    }
+    const handleClick = () => setEditModeActive(!isEditModeActive)
 
     useEffect(() => {
         const currentMode = isEditModeActive ? Mode.EDIT : Mode.VIEW
         onModeChange(currentMode)
-    }, [isEditModeActive])
+    }, [isEditModeActive, onModeChange])
 
     return <div className={styles.Wrapper} onClick={handleClick}>
         <img src={isEditModeActive ? ChangeToPreviewImage : ChangeToTextImage}  alt='button to change mode' />
