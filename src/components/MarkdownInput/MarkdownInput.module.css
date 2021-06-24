@@ -1,7 +1,7 @@
 .MarkdownInputTextArea {
-    height: 80vh;
-    width: 90%;
-    resize: none;
     border: 1px solid blue;
+    height: 90%;
+    width: 90%;
     margin: 15px;
+    resize: none;
 }

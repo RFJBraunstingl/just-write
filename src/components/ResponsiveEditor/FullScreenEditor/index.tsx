@@ -3,11 +3,12 @@ import {EditorProps} from "../EditorProps";
 import MarkdownInput from "../../MarkdownInput/MarkdownInput";
 import MarkdownPreview from "../../MarkdownPreview/MarkdownPreview";
 import styles from "./styles.module.css";
-import ToggleEditModeButton from "./ToggleEditModeButton";
+import ToggleEditModeButton, {Mode} from "./ToggleEditModeButton";
 
 const FullScreenEditor = ({text, onTextUpdate}: EditorProps) => {
 
     const [isEditMode, setEditMode] = useState<boolean>(true)
+
     return (
         <>
             <div className={styles.Wrapper}>
@@ -15,7 +16,7 @@ const FullScreenEditor = ({text, onTextUpdate}: EditorProps) => {
                     <MarkdownInput onTextChange={onTextUpdate}/> :
                     <MarkdownPreview markdownText={text}/>}
             </div>
-            <ToggleEditModeButton />
+            <ToggleEditModeButton onModeChange={(newMode) => setEditMode(newMode === Mode.EDIT)} />
         </>
     )
 }

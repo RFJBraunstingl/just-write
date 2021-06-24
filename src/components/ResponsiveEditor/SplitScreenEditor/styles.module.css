@@ -6,16 +6,15 @@
     align-items: center;
 }
 
-.TextInputWrapper {
+.Textbox {
     width: 40vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .Divider {
     border-left: 1px solid grey;
     height: 95%;
-}
-
-.MarkdownPreviewWrapper {
-    width: 40vw;
-    height: 80vh;
 }
