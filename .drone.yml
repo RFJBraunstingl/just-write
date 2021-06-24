@@ -26,7 +26,7 @@ steps:
   - name: prepare-k8s-yml
     image: alpine:latest
     commands:
-      - sed -i 's/container-tag/$DRONE_COMMIT/g' kubernetes.yml
+      - sed -i 's/container-tag/${DRONE_COMMIT}/g' kubernetes.yml
 
   - name: deploy
     image: bitnami/kubectl:latest
