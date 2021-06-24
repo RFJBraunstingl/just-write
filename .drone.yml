@@ -7,7 +7,7 @@ steps:
     image: node
     commands:
       - npm install
-      - npm test -- --watchAll=false
+      - # (currently, there are no tests) npm test -- --watchAll=false
       - npm run build
 
   - name: docker
