@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import PropTypes from 'prop-types'
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 import SplitScreenEditor from "./SplitScreenEditor";
 import FullScreenEditor from "./FullScreenEditor";
 
@@ -9,20 +8,19 @@ interface Props {
     previewModeActive?: boolean
 }
 
-const splitScreenThreshold = 1200 // px
+const splitScreenThreshold = 992
 
 const ResponsiveEditor: React.FC<Props> = (
     {
         initialText,
     }: Props) => {
 
-    const {width} = useWindowDimensions()
-    const isSplitScreenMode = width >= splitScreenThreshold
-
     const [text, setText] = useState(initialText || '')
 
+    const isSplitScreenMode = (window.innerWidth >= splitScreenThreshold)
+
     if (isSplitScreenMode) {
-        return <SplitScreenEditor text={text} onTextUpdate={setText} />
+        return <SplitScreenEditor text={text} onTextUpdate={setText}/>
     } else {
         return <FullScreenEditor text={text} onTextUpdate={setText}/>
     }
