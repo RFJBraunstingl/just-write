@@ -1,34 +1,19 @@
-import React, {useState} from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import SplitScreenEditor from "./SplitScreenEditor";
 import FullScreenEditor from "./FullScreenEditor";
-
-interface Props {
-    initialText?: string,
-    previewModeActive?: boolean
-}
+import {EditorProps} from "../../types/EditorProps";
 
 const splitScreenThreshold = 992
 
-const ResponsiveEditor: React.FC<Props> = (
-    {
-        initialText,
-    }: Props) => {
-
-    const [text, setText] = useState(initialText || '')
+const ResponsiveEditor: React.FC<EditorProps> = (props: EditorProps) => {
 
     const isSplitScreenMode = (window.innerWidth >= splitScreenThreshold)
 
     if (isSplitScreenMode) {
-        return <SplitScreenEditor text={text} onTextUpdate={setText}/>
+        return <SplitScreenEditor {...props} />
     } else {
-        return <FullScreenEditor text={text} onTextUpdate={setText}/>
+        return <FullScreenEditor {...props} />
     }
-}
-
-ResponsiveEditor.propTypes = {
-    initialText: PropTypes.string,
-    previewModeActive: PropTypes.bool
 }
 
 export default ResponsiveEditor
