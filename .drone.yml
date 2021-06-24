@@ -23,6 +23,11 @@ steps:
         - ${DRONE_COMMIT}
       steps:
 
+  - name: prepare-k8s-yml
+    image: alpine:latest
+    commands:
+      - sed -i 's/container-tag/$DRONE_COMMIT/g' input.txt
+
   - name: deploy
     image: bitnami/kubectl:latest
     environment:
