@@ -1,0 +1,22 @@
+.Wrapper {
+    display: flex;
+    height: 90vh;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.TextInputWrapper {
+    width: 40vw;
+}
+
+.Divider {
+    border-left: 1px solid grey;
+    height: 95%;
+}
+
+.MarkdownPreviewWrapper {
+    width: 40vw;
+    height: 80vh;
+    border: 1px solid blue;
+}

@@ -17,7 +17,7 @@ const ResponsiveEditor: React.FC<Props> = (
     }: Props) => {
 
     const {width} = useWindowDimensions()
-    const isSplitScreenMode = width < splitScreenThreshold
+    const isSplitScreenMode = width >= splitScreenThreshold
 
     const [text, setText] = useState(initialText || '')
 
