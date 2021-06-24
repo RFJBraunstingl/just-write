@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import ResponsiveEditor from "./components/ResponsiveEditor/ResponsiveEditor";
+import ResponsiveEditor from "./components/ResponsiveEditor";
 
 function App() {
   return (

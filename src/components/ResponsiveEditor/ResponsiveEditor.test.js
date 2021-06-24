@@ -1,7 +1,6 @@
 import React from "react";
-import ResponsiveEditor from "./ResponsiveEditor";
-import {mount, shallow, render} from "enzyme";
-import {SMALL_SCREEN_WIDTH} from "../../Constants";
+import ResponsiveEditor from "./index";
+import {mount} from "enzyme";
 
 describe('ResponsiveEditor', () => {
 
