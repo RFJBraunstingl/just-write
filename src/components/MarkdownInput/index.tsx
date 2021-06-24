@@ -1,6 +1,6 @@
 import React from "react"
-import styles from './MarkdownInput.module.css'
-import {EditorProps} from "../ResponsiveEditor/EditorProps";
+import styles from './styles.module.css'
+import {EditorProps} from "../../types/EditorProps";
 
 const MarkdownInput: React.FC<EditorProps> = ({text, onTextUpdate}: EditorProps) => (
     <textarea

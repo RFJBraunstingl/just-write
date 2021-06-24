@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import {EditorProps} from "../EditorProps";
-import MarkdownInput from "../../MarkdownInput/MarkdownInput";
-import MarkdownPreview from "../../MarkdownPreview/MarkdownPreview";
+import {EditorProps} from "../../../types/EditorProps";
+import MarkdownInput from "../../MarkdownInput";
+import MarkdownPreview from "../../MarkdownPreview";
 import styles from "./styles.module.css";
 import ToggleEditModeButton, {Mode} from "./ToggleEditModeButton";
 

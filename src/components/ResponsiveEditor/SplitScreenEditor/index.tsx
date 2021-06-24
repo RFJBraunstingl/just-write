@@ -1,8 +1,8 @@
 import React from "react";
-import {EditorProps} from "../EditorProps";
+import {EditorProps} from "../../../types/EditorProps";
 import styles from "./styles.module.css";
-import MarkdownInput from "../../MarkdownInput/MarkdownInput";
-import MarkdownPreview from "../../MarkdownPreview/MarkdownPreview";
+import MarkdownInput from "../../MarkdownInput";
+import MarkdownPreview from "../../MarkdownPreview";
 
 const SplitScreenEditor = (props: EditorProps) => <div className={styles.Wrapper}>
     <div className={styles.Textbox}>
