@@ -29,10 +29,14 @@ function App() {
     useEffect(() => saveContent(path, text), [text])
 
     const handleFileRename = (newName: string) => {
-        saveContent(path, null)
+        const oldName = path;
+
+        saveContent(oldName, null)
         saveContent(newName, text)
+        setAvailableDocuments(prevState =>
+            [...prevState, newName].filter(n => n !== oldName))
+
         setPath(newName)
-        setAvailableDocuments(prevState => [...prevState, newName])
     }
 
     const handleCreateFile = () => {
