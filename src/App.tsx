@@ -4,25 +4,23 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ResponsiveEditor from "./components/ResponsiveEditor";
 import Breadcrumbs from "./components/Breadcrumbs";
-import useStorage from "./hooks/useStorage";
 import SelectFileDialog from "./components/SelectFileDialog";
+import useSaveContent from "./hooks/useSaveContent";
+import useReadContent from "./hooks/useReadContent";
 
 function App() {
 
     const [path, setPath] = useState<string>('New file')
     const [text, setText] = useState<string>('')
     const [showAllFilesDialog, setShowAllFilesDialog] = useState<boolean>(false)
-
-    const storage = useStorage()
+    const saveContent = useSaveContent()
+    const readContent = useReadContent()
 
     // load initial text
-    useEffect(() => {
-        const text = storage.getContentForName(path)
-        setText(text || '')
-    }, [setText])
+    useEffect(() => setText(readContent(path) || ''), [path, setText])
 
     // store updates
-    useEffect(() => storage.setContentForName(path, text), [text])
+    useEffect(() => saveContent(path, text), [text])
 
     const handleFileRename = (newName: string) => {
         storage.setContentForName(path, null)

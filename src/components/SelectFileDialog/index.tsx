@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import useStorage from "../../hooks/useStorage";
+import React from "react";
 import styles from './styles.module.css'
+import useAllNames from "../../hooks/useAllNames";
 
 interface Props {
     onFileSelected: (name: string) => void;
@@ -10,8 +10,7 @@ interface Props {
 
 const SelectFileDialog = ({onFileSelected, onCreateNewFile, onCancel}: Props) => {
 
-    const storage = useStorage()
-    const [files] = useState<string[]>(storage.getAllNames())
+    const files = useAllNames()
 
     return (
         <dialog open>
