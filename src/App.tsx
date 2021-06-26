@@ -21,11 +21,14 @@ function App() {
     const updateAvailableDocuments = useSetAvailableDocuments()
 
     // load initial text
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => setText(readContent(path) || ''), [path, setText])
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => updateAvailableDocuments(availableDocuments), [availableDocuments])
 
     // store updates
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => saveContent(path, text), [text])
 
     const handleFileRename = (newName: string) => {
