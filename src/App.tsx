@@ -5,18 +5,19 @@ import Footer from "./components/Footer";
 import ResponsiveEditor from "./components/ResponsiveEditor";
 import {LOCAL_STORAGE_KEY_TEXT} from './Constants'
 import Breadcrumbs from "./components/Breadcrumbs";
+import useStorage from "./hooks/useStorage";
 
 function App() {
 
     const [path, setPath] = useState<string>('New file')
     const [text, setText] = useState<string>('')
 
+    const storage = useStorage()
+
     // load initial text
     useEffect(() => {
-        const text = localStorage.getItem(LOCAL_STORAGE_KEY_TEXT + path)
-        if (text) {
-            setText(text)
-        }
+        const text = storage.getContentForName(path)
+        setText(text || '')
     }, [setText])
 
     // store updates
