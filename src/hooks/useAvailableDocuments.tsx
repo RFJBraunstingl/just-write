@@ -1,6 +1,6 @@
 import {KEY_NAMES} from "../Constants";
 
-const useAllNames = () => {
+const useAvailableDocuments = () => {
     const asString = localStorage.getItem(KEY_NAMES)
 
     if (!asString) {
@@ -10,4 +10,4 @@ const useAllNames = () => {
     return JSON.parse(asString) as string[]
 }
 
-export default useAllNames
+export default useAvailableDocuments

@@ -7,25 +7,32 @@ import Breadcrumbs from "./components/Breadcrumbs";
 import SelectFileDialog from "./components/SelectFileDialog";
 import useSaveContent from "./hooks/useSaveContent";
 import useReadContent from "./hooks/useReadContent";
+import useAvailableDocuments from "./hooks/useAvailableDocuments";
+import useSetAvailableDocuments from "./hooks/useSetAvailableDocuments";
 
 function App() {
 
+    const [availableDocuments, setAvailableDocuments] = useState<string[]>(useAvailableDocuments())
     const [path, setPath] = useState<string>('New file')
     const [text, setText] = useState<string>('')
     const [showAllFilesDialog, setShowAllFilesDialog] = useState<boolean>(false)
     const saveContent = useSaveContent()
     const readContent = useReadContent()
+    const updateAvailableDocuments = useSetAvailableDocuments()
 
     // load initial text
     useEffect(() => setText(readContent(path) || ''), [path, setText])
+
+    useEffect(() => updateAvailableDocuments(availableDocuments), [availableDocuments])
 
     // store updates
     useEffect(() => saveContent(path, text), [text])
 
     const handleFileRename = (newName: string) => {
-        storage.setContentForName(path, null)
-        storage.setContentForName(newName, text)
+        saveContent(path, null)
+        saveContent(newName, text)
         setPath(newName)
+        setAvailableDocuments(prevState => [...prevState, newName])
     }
 
     const handleCreateFile = () => {
@@ -37,7 +44,7 @@ function App() {
     const handleFileSelected = (selectedFile: string) => {
         setShowAllFilesDialog(false)
         setPath(selectedFile)
-        setText(storage.getContentForName(selectedFile) || '')
+        setText(readContent(selectedFile) || '')
     }
 
     return (

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from './styles.module.css'
-import useAllNames from "../../hooks/useAllNames";
+import useAvailableDocuments from "../../hooks/useAvailableDocuments";
 
 interface Props {
     onFileSelected: (name: string) => void;
@@ -10,7 +10,7 @@ interface Props {
 
 const SelectFileDialog = ({onFileSelected, onCreateNewFile, onCancel}: Props) => {
 
-    const files = useAllNames()
+    const files = useAvailableDocuments()
 
     return (
         <dialog open>
