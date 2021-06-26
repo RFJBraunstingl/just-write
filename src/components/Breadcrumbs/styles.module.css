@@ -1,0 +1,25 @@
+.Wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 32px;
+    margin-left: 32px;
+}
+
+.Path {
+    color: blue;
+    margin-left: 12px;
+    margin-right: 12px;
+}
+
+.Path:hover {
+    cursor: pointer;
+}
+
+.EditNameDialog {
+    display: flex;
+    flex-direction: column;
+}
+
+.EditNameDialog > * {
+    margin-bottom: 12px;
+}
