@@ -1,0 +1,13 @@
+.ListWrapper {
+    list-style: none;
+}
+
+.FileLink {
+    text-align: left;
+    color: blue;
+    margin-bottom: 12px;
+}
+
+.FileLink:hover {
+    cursor: pointer;
+}
