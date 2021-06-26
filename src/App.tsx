@@ -25,8 +25,8 @@ function App() {
     useEffect(() => storage.setContentForName(path, text), [text])
 
     const handleFileRename = (newName: string) => {
-        storage.setContentForName(newName, text)
         storage.setContentForName(path, null)
+        storage.setContentForName(newName, text)
         setPath(newName)
     }
 
